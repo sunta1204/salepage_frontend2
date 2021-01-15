@@ -14,6 +14,7 @@
             required
           ></v-text-field>
       <v-btn type="button" @click="createQr">ชำระเงิน</v-btn>
+      <v-btn type="button" @click="generatedQr">สร้าง qr code</v-btn>
     </div>
     <v-divider></v-divider>
     <v-img :src="qrImage"></v-img>
@@ -47,24 +48,21 @@ export default {
           "applicationSecret" : "14484e1d4356443484c410c71cb55462"
         }
       })
-      .then((response) => this.generatedQr(response.data.data.accessToken))
+      .then((response) => console.log(response.data.data.accessToken))
       .catch(console.error());
     },
-    generatedQr(token){
-      console.log(token)
+    generatedQr(){
       //Generate Qr Code
       axios({
         method: 'post', //you can set what request you want to be
         url: 'https://api-sandbox.partners.scb/partners/sandbox/v1/payment/qrcode/create',
         headers: {
           "Content-Type" : 'application/json',
-          "authorization" : "Bearer " + token,
+          "authorization" : "Bearer f86b308f-6d23-4bba-9661-e8238561866c",
           "resourceOwnerId" : "l788ac6595ad884384af1413fae7462b97",
           "requestUId" : "0123456789",
           "accept-language" : "EN",
-          "Access-Control-Allow-Origin" : "*",
-          'Access-Control-Allow-Methods' : 'POST, GET, PUT, PATCH, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers' : 'Content-Type, Option, Authorization'
+          
         },
         data: {
          "qrType": "PP", 
@@ -78,6 +76,7 @@ export default {
       })
       .then((response) => this.qrImage = response.data.data.qrImage)
       .catch((response) => console.log(response.data));
+      
     }
   },
 };
