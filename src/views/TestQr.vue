@@ -55,16 +55,14 @@ export default {
       //Generate Qr Code
       axios({
         method: 'post', //you can set what request you want to be
-        url: 'https://api-sandbox.partners.scb/partners/sandbox/v1/payment/qrcode/create',
+        url: 'https://api-sandbox.partners.scb/partners/sandbox/v1/payment/qrcode/creates',
         headers: {
           "Content-Type" : 'application/json',
           "authorization" : "Bearer f86b308f-6d23-4bba-9661-e8238561866c",
           "resourceOwnerId" : "l788ac6595ad884384af1413fae7462b97",
           "requestUId" : "0123456789",
           "accept-language" : "EN",
-          "Connection" : "keep-alive",
-          "Accept-Encoding" : "gzip, deflate, br",
-          "Accept" : "*/*"
+          
         },
         data: {
          "qrType": "PP", 
