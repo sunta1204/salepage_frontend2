@@ -62,7 +62,9 @@ export default {
           "resourceOwnerId" : "l788ac6595ad884384af1413fae7462b97",
           "requestUId" : "0123456789",
           "accept-language" : "EN",
-          
+          "Connection" : "keep-alive",
+          "Accept-Encoding" : "gzip, deflate, br",
+          "Accept" : "*/*"
         },
         data: {
          "qrType": "PP", 
